@@ -16,6 +16,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonHost2" type="Button" parent="."]
+margin_left = 76.0
+margin_top = 48.0
+margin_right = 495.0
+margin_bottom = 173.0
+rect_pivot_offset = Vector2( -537, -94 )
+text = "Host"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ButtonJoin" type="Button" parent="."]
 margin_left = 555.0
 margin_top = 52.0
@@ -68,6 +79,7 @@ __meta__ = {
 }
 
 [node name="WaitText" type="Label" parent="."]
+visible = false
 margin_left = 232.0
 margin_top = 361.0
 margin_right = 477.0
@@ -76,7 +88,33 @@ text = "Session started... Waiting for players..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Joining" type="Label" parent="."]
+visible = false
+margin_left = 271.09
+margin_top = 317.382
+margin_right = 422.09
+margin_bottom = 347.382
+text = "Joining game..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Failed" type="Label" parent="."]
+visible = false
+margin_left = 368.198
+margin_top = 317.382
+margin_right = 519.198
+margin_bottom = 347.382
+text = "Failed to join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="ButtonHost" to="." method="_on_ButtonHost_pressed"]
+[connection signal="pressed" from="ButtonHost2" to="." method="_on_ButtonHost_pressed"]
 [connection signal="pressed" from="ButtonJoin" to="." method="_on_ButtonJoin_pressed"]
 [connection signal="text_changed" from="IP Address" to="." method="_on_IP_Address_text_changed"]
 [connection signal="text_changed" from="Port" to="." method="_on_Port_text_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

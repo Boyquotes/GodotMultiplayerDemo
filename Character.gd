@@ -1,9 +1,12 @@
-
 extends KinematicBody
 
 export var speed = 5
 
 var direction = Vector3()
+var gravity = -30
+var max_speed = 8
+var mouse_sensitivity = 0.002  # radians/pixel
+var velocity = Vector3()
 
 func _ready():
 	if is_network_master():
